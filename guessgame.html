@@ -1,0 +1,113 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+          }
+          body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+      #container{
+        border: 2px solid black;
+        width: 600px;
+        height: 300px;
+        align-items: center;
+        padding: 20px;
+        margin: 10px;
+       background-color: rgb(180, 111, 162);
+       border-radius: 10px;
+      }
+     #head{
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+     }
+     #output{
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+        color: white;
+     }
+     #input{
+        width: 250px;
+        height: 30px;
+         margin: auto;
+         display: block;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        border: 1px solid black;
+        border-radius: 5px;
+     }
+    #enter{
+        width: 100px;
+        height: 30px;
+        margin-top: 10px;
+        margin-left: 160px;
+        border-radius: 6px;
+    }
+    #playAgain{
+        width: 100px;
+        height: 30px;
+        margin-top: 15px;
+        margin-right: 160px;
+        margin-left: 15px;
+        border-radius: 6px;
+    }
+   button:hover{
+    background-color: green;
+   }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+        <h1 id="head">Welcome to the Guess Game!</h1>
+        <h2 id="output">Enter the Number </h2>
+       
+        <input id="input" >
+        <button id="enter">Enter </button>
+        
+        <button id="playAgain">Play Again!</button>
+    </div>
+  </body>
+  <script>
+
+let output =document.getElementById('output')
+let enterButton =document.getElementById('enter')
+let againButton =document.getElementById('playAgain')
+var rnum=90
+var count=0
+function check(){
+    count++;
+    var input=document.getElementById('input').value
+    if(input==rnum){
+        output.innerHTML="You Won,You Guessed the Correct Number "+rnum+" in "+count+" guesses "
+        output.style.color="green";
+
+    }else if(input>rnum && input<100){
+        output.innerHTML="You Entered  high Number ! Play Again  "
+    
+    }else if(input<rnum && input<100){
+        output.innerHTML="You Entered  low Number ! Play Again  "
+         
+    }else if(isNaN(input)){
+        output.innerHTML="Enter a Number Please ! Play Again  "
+          
+    }else{
+        output.innerHTML="Enter a  number between 1 to 100 ! Play Again "
+    }
+}
+enterButton.addEventListener('click',check);
+againButton.addEventListener('click',function (){
+    location.reload();
+})
+  </script>
+  </html>
